@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import Footer from "../Footer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -16,15 +17,33 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 via-white to-slate-100">
+    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+      {/* ACADEMIC HEADER - University Branding */}
+      <div className="bg-slate-900 text-white py-3 border-b border-slate-700">
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between text-sm">
+          <div className="flex items-center gap-2">
+            <span className="text-2xl font-bold">SLIIT</span>
+            <span className="text-gray-300">|</span>
+            <div className="flex flex-col leading-tight">
+              <span className="text-xs font-medium">Faculty of Computing</span>
+              <span className="text-xs text-gray-300">Research Project 25-26J-121</span>
+            </div>
+          </div>
+          <div className="text-right text-xs text-gray-400">
+            <p>Sri Lanka Institute of Information Technology</p>
+          </div>
+        </div>
+      </div>
+
       {/* NAVBAR */}
-      <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-gray-200 shadow-sm">
+      <header className="sticky top-0 z-50 backdrop-blur bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
           {/* LOGO */}
-          <h1 className="font-semibold text-sm text-gray-900 tracking-tight">
-            AVT AI System - 25-26J-121
-          </h1>
+          <div className="flex items-center gap-3">
+            <h1 className="font-bold text-lg text-gray-900">AVT AI System</h1>
+            <span className="text-xs text-gray-500 px-2 py-1 bg-gray-100 rounded">25-26J-121</span>
+          </div>
 
           {/* DESKTOP NAV */}
           <nav className="hidden md:flex gap-6 text-sm">
@@ -95,9 +114,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* CONTENT */}
-      <main className="flex-1 max-w-6xl mx-auto w-full px-6 py-10">
-        {children}
+      <main className="flex-1 w-full">
+        <div className="max-w-6xl mx-auto px-6 py-10">
+          {children}
+        </div>
       </main>
+
+      {/* FOOTER */}
+      <Footer />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Mail, Phone, Globe, Send } from "lucide-react";
+import { Mail, Phone, Send } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -31,7 +31,7 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
                   <p className="font-medium text-gray-900">
-                    yourproject@email.com
+                    lakshants500@gmail.com
                   </p>
                 </div>
               </div>
@@ -44,26 +44,11 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-gray-500">Phone</p>
                   <p className="font-medium text-gray-900">
-                    +94 7X XXX XXXX
+                    0740884483
                   </p>
                 </div>
               </div>
 
-              {/* GITHUB */}
-              <div
-                onClick={() => window.open("https://github.com/your-repo", "_blank")}
-                className="flex items-center gap-4 cursor-pointer hover:bg-gray-50 p-2 rounded-xl transition"
-              >
-                <div className="bg-gray-100 p-3 rounded-xl">
-                  <Globe size={20} />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">GitHub</p>
-                  <p className="font-medium text-gray-900">
-                    View Repository
-                  </p>
-                </div>
-              </div>
 
             </div>
 
@@ -73,10 +58,10 @@ export default function Contact() {
                 Supervisor
               </h2>
               <p className="text-gray-600 text-sm">
-                Dr. XYZ — Senior Lecturer, SLIIT
+                Lokesha Weerasinghe — SLIIT
               </p>
               <p className="text-gray-500 text-sm">
-                supervisor@email.com
+                lokesha.w@sliit.lk
               </p>
             </div>
 
