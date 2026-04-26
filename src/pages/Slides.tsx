@@ -41,7 +41,7 @@ export default function Slides() {
         {/* HEADER */}
         <div className="text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">
-            📊 Presentations & Milestones
+            Presentations & Milestones
           </h1>
           <p className="text-gray-600 mt-2">
             A journey through the project development and academic milestones
@@ -75,7 +75,7 @@ export default function Slides() {
                     className={`opacity-0 group-hover:opacity-100 px-5 py-2 rounded-xl flex items-center gap-2 shadow-lg transition ${
                       slide.link === "#"
                         ? "bg-gray-400 text-white cursor-not-allowed"
-                        : "bg-white text-gray-900 hover:bg-blue-600 hover:text-white"
+                        : "bg-white text-gray-900 hover:bg-green-600 hover:text-white"
                     }`}
                   >
                     {slide.link === "#" ? "Coming Soon" : "View Slides"}
@@ -86,7 +86,7 @@ export default function Slides() {
 
               {/* CONTENT */}
               <div className="p-6">
-                <div className="flex items-center gap-2 text-blue-600 mb-2">
+                <div className="flex items-center gap-2 text-green-600 mb-2">
                   <Presentation size={18} />
                   <span className="text-sm font-medium">Presentation</span>
                 </div>
@@ -109,7 +109,7 @@ export default function Slides() {
                   className={`mt-4 text-sm font-medium flex items-center gap-1 ${
                     slide.link === "#"
                       ? "text-gray-400 cursor-not-allowed"
-                      : "text-blue-600 hover:underline"
+                      : "text-green-600 hover:underline"
                   }`}
                 >
                   {slide.link === "#" ? "Coming soon..." : "Click to view presentation slides"}

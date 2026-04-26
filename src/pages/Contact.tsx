@@ -1,6 +1,16 @@
 import { Mail, Phone, Send } from "lucide-react";
+import { useState } from "react";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Website Contact: Message from ${formData.name}`);
+    const body = encodeURIComponent(`${formData.message}\n\n---\nSender Details:\nName: ${formData.name}\nEmail: ${formData.email}`);
+    window.location.href = `mailto:lakshants500@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 py-10">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 space-y-16">
@@ -25,8 +35,8 @@ export default function Contact() {
 
               {/* EMAIL */}
               <div className="flex items-center gap-4">
-                <div className="bg-blue-50 p-3 rounded-xl">
-                  <Mail className="text-blue-600" size={20} />
+                <div className="bg-green-50 p-3 rounded-xl">
+                  <Mail className="text-green-600" size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
@@ -74,29 +84,38 @@ export default function Contact() {
               Send a Message
             </h2>
 
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
 
               <input
                 type="text"
                 placeholder="Your Name"
-                className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
+                className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
 
               <input
                 type="email"
                 placeholder="Your Email"
-                className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+                className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
 
               <textarea
                 placeholder="Your Message"
                 rows={5}
-                className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                required
+                className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl flex items-center justify-center gap-2 hover:shadow-lg transition"
+                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl flex items-center justify-center gap-2 hover:shadow-lg transition"
               >
                 Send Message <Send size={16} />
               </button>
