@@ -74,10 +74,10 @@ export default function Milestones() {
 
   return (
     <div className="bg-white min-h-screen">
-      <section className="bg-gradient-to-br from-blue-50 to-slate-100 py-12 -mx-6 px-6 mb-12">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
-          <h1 className="text-5xl sm:text-5xl font-bold">📅 Project Timeline</h1>
-          <p className="text-gray-600 text-lg">Track project progress across key milestones</p>
+      <section className="bg-green-50 py-10 sm:py-12 -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 text-center space-y-4 mb-12">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900">Project Timeline</h1>
+          <p className="text-lg text-gray-600 mt-4 leading-relaxed">Track project progress across key milestones</p>
         </div>
       </section>
 
@@ -93,8 +93,8 @@ export default function Milestones() {
             <div className="text-3xl font-bold text-yellow-600">1</div>
             <div className="text-sm text-gray-700 mt-1">Upcoming Assessment</div>
           </div>
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border border-blue-200 text-center">
-            <div className="text-3xl font-bold text-blue-600">50+</div>
+          <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 border border-green-200 text-center">
+            <div className="text-3xl font-bold text-green-600">50+</div>
             <div className="text-sm text-gray-700 mt-1">Total Marks</div>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function Milestones() {
         <div className="relative">
 
           {/* vertical line */}
-          <div className="absolute left-4 sm:left-1/2 sm:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-indigo-500 rounded-full" />
+          <div className="absolute left-4 sm:left-1/2 sm:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-green-500 to-emerald-500 rounded-full" />
 
           <div className="space-y-8">
             {milestones.map((item, i) => (
@@ -127,7 +127,7 @@ export default function Milestones() {
                     
                     <div className="flex justify-between items-start gap-4 mb-3">
                       <div className="flex-1">
-                        <h3 className="font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition">
+                        <h3 className="font-semibold text-lg text-gray-900 group-hover:text-green-600 transition">
                           {item.title}
                         </h3>
                         <p className="text-gray-600 text-sm mt-1">
@@ -144,13 +144,13 @@ export default function Milestones() {
 
                     {/* HEADER INFO */}
                     <div className="flex items-center gap-4 mb-3 flex-wrap">
-                      <span className="text-blue-600 text-sm font-semibold bg-blue-50 px-3 py-1 rounded-full">
+                      <span className="text-green-600 text-sm font-semibold bg-green-50 px-3 py-1 rounded-full">
                         {item.date}
                       </span>
                       <span className={`text-xs font-bold px-3 py-1 rounded-full ${
                         item.status === "Completed" ? "bg-green-50 text-green-700" :
                         item.status === "In Progress" ? "bg-yellow-50 text-yellow-700" :
-                        "bg-blue-50 text-blue-700"
+                        "bg-green-50 text-green-700"
                       }`}>
                         {item.status}
                       </span>
@@ -163,7 +163,7 @@ export default function Milestones() {
                         <ul className="space-y-2">
                           {item.details.map((detail, idx) => (
                             <li key={idx} className="flex items-start gap-3 text-sm text-gray-600">
-                              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 flex-shrink-0" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 flex-shrink-0" />
                               {detail}
                             </li>
                           ))}

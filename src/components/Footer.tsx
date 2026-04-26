@@ -1,4 +1,4 @@
-import { Mail, Phone, ExternalLink, ArrowUp } from "lucide-react";
+import { Mail, Phone, ExternalLink, ArrowUp, Link, MapPin } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -10,7 +10,7 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-          
+
           {/* About Section */}
           <div className="space-y-4">
             <h3 className="text-white font-bold text-lg">AVT AI System</h3>
@@ -25,22 +25,22 @@ export default function Footer() {
             <h4 className="text-white font-semibold">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/" className="hover:text-blue-400 transition">
-                  Home
+                <a href="/" className="hover:text-green-400 transition">
+                  Overview
                 </a>
               </li>
               <li>
-                <a href="/domain" className="hover:text-blue-400 transition">
+                <a href="/domain" className="hover:text-green-400 transition">
                   Research Domain
                 </a>
               </li>
               <li>
-                <a href="/milestones" className="hover:text-blue-400 transition">
+                <a href="/milestones" className="hover:text-green-400 transition">
                   Milestones
                 </a>
               </li>
               <li>
-                <a href="/documents" className="hover:text-blue-400 transition">
+                <a href="/documents" className="hover:text-green-400 transition">
                   Documents
                 </a>
               </li>
@@ -49,31 +49,34 @@ export default function Footer() {
 
           {/* Resources */}
           <div className="space-y-4">
-            <h4 className="text-white font-semibold">Resources</h4>
-            <ul className="space-y-2 text-sm">
+            <h3 className="text-white font-semibold flex items-center gap-2">
+              <Link size={18} className="text-gray-400" />
+              Quick Links
+            </h3>
+            <ul className="space-y-3 text-sm text-gray-400">
               <li>
-                <a href="https://silenspark.online/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition flex items-center gap-1">
-                  Try the App <ExternalLink size={14} />
+                <a href="https://silenspark.online/" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition flex items-center gap-1">
+                  Web Application <ExternalLink size={12} />
                 </a>
               </li>
               <li>
-                <a href="/slides" className="hover:text-blue-400 transition">
+                <a href="/slides" className="hover:text-green-400 transition">
                   Presentations
                 </a>
               </li>
               <li>
-                <a href="/about" className="hover:text-blue-400 transition">
-                  Team
+                <a href="/about" className="hover:text-green-400 transition">
+                  About Team
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:text-blue-400 transition">
+                <a href="/contact" className="hover:text-green-400 transition">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="https://www.sliit.lk" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition flex items-center gap-1">
-                  SLIIT <ExternalLink size={14} />
+                <a href="https://www.sliit.lk" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition flex items-center gap-1">
+                  SLIIT Website <ExternalLink size={12} />
                 </a>
               </li>
             </ul>
@@ -81,16 +84,24 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h4 className="text-white font-semibold">Get in Touch</h4>
-            <div className="space-y-3 text-sm">
-              <a href="mailto:lakshants500@gmail.com" className="flex items-center gap-2 hover:text-blue-400 transition">
+            <h3 className="text-white font-semibold">Contact</h3>
+            <div className="space-y-3 text-sm text-gray-400">
+              <a href="mailto:lakshants500@gmail.com" className="flex items-center gap-2 hover:text-green-400 transition">
                 <Mail size={16} />
-                <span>lakshants500@gmail.com</span>
+                lakshants500@gmail.com
               </a>
-              <a href="tel:0740884483" className="flex items-center gap-2 hover:text-blue-400 transition">
+              <a href="tel:0740884483" className="flex items-center gap-2 hover:text-green-400 transition">
                 <Phone size={16} />
-                <span>0740884483</span>
+                (+94) 740 884 483
               </a>
+              <p className="flex items-start gap-2 pt-1">
+                <MapPin size={16} className="mt-1 flex-shrink-0" />
+                <span>
+                  Faculty of Computing<br />
+                  SLIIT, Malabe<br />
+                  Sri Lanka
+                </span>
+              </p>
             </div>
           </div>
         </div>
@@ -103,7 +114,7 @@ export default function Footer() {
           {/* Back to Top Button */}
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition text-sm font-medium"
+            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg transition text-sm font-medium text-white"
           >
             Back to Top <ArrowUp size={16} />
           </button>
