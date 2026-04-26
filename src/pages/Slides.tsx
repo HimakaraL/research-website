@@ -11,37 +11,37 @@ const slides = [
     title: "Proposal Presentation",
     desc: "Initial idea validation and system proposal",
     image: slide1,
-    link: "https://your-link.com/proposal-slides",
+    link: "https://drive.google.com/file/d/1RfQ2KYx35pWir4_WNvG6GSHWWq5a7ZlQ/view?usp=sharing",
   },
   {
     title: "Progress Presentation 1",
     desc: "System design and early prototype",
     image: slide2,
-    link: "https://your-link.com/progress1-slides",
+    link: "https://docs.google.com/presentation/d/1JsC7vjE84SvRohy3oII1Op6sM57ut1gX/edit?usp=sharing&ouid=102335334961747806733&rtpof=true&sd=true",
   },
   {
     title: "Progress Presentation 2",
     desc: "ML models and implementation progress",
     image: slide3,
-    link: "https://your-link.com/progress2-slides",
+    link: "https://docs.google.com/presentation/d/1Dop6VXac-HrPBXqi5Fc5zh_91cfD97Fc/edit?usp=sharing&ouid=102335334961747806733&rtpof=true&sd=true",
   },
   {
     title: "Final Presentation",
     desc: "Complete system demonstration and results",
     image: slide4,
-    link: "https://your-link.com/final-slides",
+    link: "#",
   },
 ];
 
 export default function Slides() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 py-10">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 space-y-12">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 space-y-16 py-12">
 
         {/* HEADER */}
         <div className="text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">
-            Presentations
+            📊 Presentations & Milestones
           </h1>
           <p className="text-gray-600 mt-2">
             A journey through the project development and academic milestones
@@ -67,10 +67,19 @@ export default function Slides() {
                 {/* overlay */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition flex items-center justify-center">
                   <button
-                    onClick={() => window.open(slide.link, "_blank")}
-                    className="opacity-0 group-hover:opacity-100 bg-white text-gray-900 px-5 py-2 rounded-xl flex items-center gap-2 shadow-lg transition"
+                    onClick={() => {
+                      if (slide.link !== "#") {
+                        window.open(slide.link, "_blank");
+                      }
+                    }}
+                    className={`opacity-0 group-hover:opacity-100 px-5 py-2 rounded-xl flex items-center gap-2 shadow-lg transition ${
+                      slide.link === "#"
+                        ? "bg-gray-400 text-white cursor-not-allowed"
+                        : "bg-white text-gray-900 hover:bg-blue-600 hover:text-white"
+                    }`}
                   >
-                    View Slides <ExternalLink size={16} />
+                    {slide.link === "#" ? "Coming Soon" : "View Slides"}
+                    {slide.link !== "#" && <ExternalLink size={16} />}
                   </button>
                 </div>
               </div>
@@ -92,10 +101,19 @@ export default function Slides() {
 
                 {/* CTA */}
                 <button
-                  onClick={() => window.open(slide.link, "_blank")}
-                  className="mt-4 text-blue-600 text-sm font-medium flex items-center gap-1 hover:underline"
+                  onClick={() => {
+                    if (slide.link !== "#") {
+                      window.open(slide.link, "_blank");
+                    }
+                  }}
+                  className={`mt-4 text-sm font-medium flex items-center gap-1 ${
+                    slide.link === "#"
+                      ? "text-gray-400 cursor-not-allowed"
+                      : "text-blue-600 hover:underline"
+                  }`}
                 >
-                  Click to view presentation slides <ExternalLink size={14} />
+                  {slide.link === "#" ? "Coming soon..." : "Click to view presentation slides"}
+                  {slide.link !== "#" && <ExternalLink size={14} />}
                 </button>
               </div>
             </div>

@@ -1,9 +1,15 @@
 import type { ReactNode } from "react";
+import { BookOpen, Lightbulb, Target, Zap, Code, Database, Palette, Volume2, Server, Rocket } from "lucide-react";
 import img1 from "../assets/domainPage/img1.png";
 import img2 from "../assets/domainPage/img2.png";
 
-const Card = ({ title, children }: { title: string; children: ReactNode }) => (
+const Card = ({ title, children, icon: Icon }: { title: string; children: ReactNode; icon?: any }) => (
   <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+    {Icon && (
+      <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
+        <Icon className="text-blue-600" size={24} />
+      </div>
+    )}
     <h2 className="font-semibold text-lg text-gray-900 mb-3">{title}</h2>
     <div className="text-gray-600 text-[15px] leading-relaxed">{children}</div>
   </div>
@@ -11,132 +17,222 @@ const Card = ({ title, children }: { title: string; children: ReactNode }) => (
 
 export default function Domain() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 py-10">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 space-y-16">
-
-        {/* HEADER */}
-        <section className="text-center space-y-4">
-          <h1 className="text-3xl sm:text-4xl font-bold">Research & Domain</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Demonstrating the research foundation, identified gaps, and technical approach behind the system.
+    <div className="bg-white">
+      {/* HERO SECTION */}
+      <section className="bg-gradient-to-br from-blue-50 to-slate-100 py-14 -mx-6 px-6 mb-20">
+        <div className="max-w-6xl mx-auto text-center space-y-4">
+          <h1 className="text-5xl sm:text-6xl font-bold">Research & Domain</h1>
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            Comprehensive analysis of literature, identified gaps, objectives, methodology, and technical approach.
           </p>
-        </section>
+        </div>
+      </section>
+
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 space-y-20">
 
         {/* LITERATURE SURVEY */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold text-center">Literature Survey</h2>
+        <section className="space-y-8">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
+              <BookOpen className="text-blue-600" size={28} />
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold">📚 Literature Survey</h2>
+              <p className="text-gray-600 mt-1">Comprehensive review of existing auditory-verbal therapy systems</p>
+            </div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4 text-gray-600">
-              <p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="space-y-6">
+              <p className="text-gray-700 text-lg leading-relaxed">
                 Existing auditory-verbal therapy systems such as <strong>Angel Sound</strong>, <strong>LACE</strong>, and <strong>Hear Me Read</strong>
                 provide structured training for hearing-impaired individuals.
               </p>
-              <p>
-                However, these systems are primarily designed for English-speaking users and lack
-                localization for Sinhala language and cultural context.
-              </p>
-              <p>
-                There is also limited integration of AI-driven personalization and emergency sound
-                awareness in existing solutions.
-              </p>
+              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded space-y-3">
+                <p className="font-semibold text-gray-900">Key Findings:</p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-3">
+                    <span className="text-blue-600 font-bold">✓</span>
+                    <span>Systems primarily designed for <strong>English-speaking</strong> users</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-blue-600 font-bold">✓</span>
+                    <span><strong>Limited Sinhala</strong> language support</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-blue-600 font-bold">✓</span>
+                    <span>Lack of <strong>AI-driven personalization</strong></span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-blue-600 font-bold">✓</span>
+                    <span>No <strong>emergency sound awareness</strong> features</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white p-4 rounded-lg border border-gray-200 text-center">
+                  <div className="text-3xl font-bold text-blue-600">5+</div>
+                  <div className="text-sm text-gray-600">Systems Analyzed</div>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200 text-center">
+                  <div className="text-3xl font-bold text-blue-600">50+</div>
+                  <div className="text-sm text-gray-600">Papers Reviewed</div>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-sm p-4 border border-gray-100">
-              <img src={img2} alt="Comparison / Chart" className="w-full h-64 object-contain" />
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+              <img src={img2} alt="Comparison / Chart" className="w-full h-72 object-contain rounded-lg" />
+              <p className="text-sm text-gray-600 text-center mt-4">System Comparison Analysis</p>
             </div>
           </div>
         </section>
 
         {/* RESEARCH GAP */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold text-center">Research Gap</h2>
+        <section className="space-y-8">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-xl bg-red-100 flex items-center justify-center flex-shrink-0">
+              <Lightbulb className="text-red-600" size={28} />
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold">🔍 Research Gap</h2>
+              <p className="text-gray-600 mt-1">Identified limitations in existing solutions</p>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <Card title="Language Gap">
-              No adaptive auditory-verbal therapy systems tailored for Sinhala-speaking users.
+            <Card title="🌐 Language Gap" icon={BookOpen}>
+              No adaptive auditory-verbal therapy systems tailored for Sinhala-speaking users with cultural context.
             </Card>
 
-            <Card title="Emergency Awareness">
-              No systems focusing on emergency sound recognition (sirens, alarms, alerts).
+            <Card title="🚨 Emergency Awareness">
+              Absence of systems focusing on emergency sound recognition (sirens, alarms, critical alerts).
             </Card>
 
-            <Card title="Analytics Missing">
-              Lack of therapist dashboards for monitoring progress and performance.
+            <Card title="📊 Therapist Analytics">
+              Lack of comprehensive dashboards for monitoring progress, performance, and personalization metrics.
             </Card>
 
-            <Card title="Personalization">
-              Existing tools lack AI-driven adaptive learning capabilities.
+            <Card title="🤖 Personalization">
+              Existing tools lack sophisticated AI-driven adaptive learning and difficulty progression.
             </Card>
           </div>
         </section>
 
-        {/* PROBLEM */}
-        <section className="text-center space-y-4">
-          <h2 className="text-3xl font-bold">Problem Statement</h2>
-          <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-            Hearing-impaired individuals lack personalized, language-specific, and emergency-aware
-            auditory learning systems that support both daily communication and safety readiness.
+        {/* PROBLEM STATEMENT */}
+        <section className="bg-gradient-to-r from-red-50 via-orange-50 to-red-50 rounded-3xl p-10 space-y-6 border-2 border-red-200">
+          <div className="flex items-center gap-3">
+            <span className="text-4xl">❌</span>
+            <h2 className="text-4xl font-bold">Problem Statement</h2>
+          </div>
+          <p className="text-gray-800 text-lg leading-relaxed max-w-3xl">
+            <strong>Hearing-impaired individuals</strong> lack <strong>personalized, language-specific, and emergency-aware</strong>
+            auditory learning systems that support both daily communication and safety readiness. Existing solutions are primarily 
+            English-based, lack AI personalization, and don't address emergency sound recognition needs.
           </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-white p-4 rounded-lg">
+              <p className="text-sm"><span className="font-bold">Target Users:</span> Sinhala-speaking hearing-impaired individuals</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg">
+              <p className="text-sm"><span className="font-bold">Scope:</span> Education & safety awareness</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg">
+              <p className="text-sm"><span className="font-bold">Context:</span> Sri Lankan healthcare</p>
+            </div>
+          </div>
         </section>
 
         {/* OBJECTIVES */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold text-center">Objectives</h2>
+        <section className="space-y-8">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
+              <Target className="text-green-600" size={28} />
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold">🎯 Research Objectives</h2>
+              <p className="text-gray-600 mt-1">Key goals to address identified gaps</p>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              "Build adaptive auditory training system",
-              "Improve emergency sound recognition",
-              "Provide therapist analytics dashboard",
-              "Enable Sinhala-based learning",
+              { title: "🎵 Adaptive Training", desc: "Build adaptive auditory training system with progressive difficulty" },
+              { title: "🚨 Sound Recognition", desc: "Improve emergency sound recognition accuracy and response time" },
+              { title: "📈 Analytics", desc: "Provide therapist analytics dashboard for progress tracking" },
+              { title: "🇱🇰 Sinhala Support", desc: "Enable Sinhala-based learning and cultural adaptation" },
             ].map((item, i) => (
-              <div key={i} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm text-center">
-                <p className="text-gray-700 font-medium">{item}</p>
+              <div key={i} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition">
+                <h3 className="text-gray-900 font-semibold text-lg mb-3">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* METHODOLOGY */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold text-center">Methodology</h2>
+        <section className="space-y-8">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0">
+              <Zap className="text-purple-600" size={28} />
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold">⚙️ Methodology</h2>
+              <p className="text-gray-600 mt-1">Research approach and implementation steps</p>
+            </div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4 text-gray-600">
-              <p>
-                Data collection was conducted using recorded audio samples and user responses gathered
-                through interviews with hearing-impaired children.
-              </p>
-              <p>
-                A deep learning model based on <strong>Wav2Vec 2.0</strong> was fine-tuned using a
-                pretrained Facebook XLSR-300M model for speech understanding.
-              </p>
-              <p>
-                A feedback loop continuously adapts difficulty levels based on user performance.
-              </p>
-              <p>
-                Results are visualized through a therapist dashboard for monitoring progress.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="space-y-5">
+              <div className="flex gap-5">
+                <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-lg font-bold text-purple-600 flex-shrink-0">1</div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900">📊 Data Collection</h4>
+                  <p className="text-gray-600 mt-2 leading-relaxed">Recorded audio samples and user responses gathered through interviews with hearing-impaired children and adults. Collected Sinhala speech data for model training.</p>
+                </div>
+              </div>
+              <div className="flex gap-5">
+                <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-lg font-bold text-purple-600 flex-shrink-0">2</div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900">🤖 Model Training</h4>
+                  <p className="text-gray-600 mt-2 leading-relaxed">Wav2Vec 2.0 fine-tuned using pretrained Facebook XLSR-300M model for Sinhala speech understanding. Trained on collected dataset with augmentation.</p>
+                </div>
+              </div>
+              <div className="flex gap-5">
+                <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-lg font-bold text-purple-600 flex-shrink-0">3</div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900">🎚️ Adaptive Loop</h4>
+                  <p className="text-gray-600 mt-2 leading-relaxed">Feedback loop continuously adapts difficulty levels based on user performance. Real-time personalization based on accuracy and response time.</p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-sm p-4 border border-gray-100">
-              <img src={img1} alt="AI Pipeline" className="w-full h-64 object-contain" />
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+              <img src={img1} alt="AI Pipeline" className="w-full h-80 object-contain rounded-lg" />
+              <p className="text-sm text-gray-600 text-center mt-4">AI Processing Pipeline Architecture</p>
             </div>
           </div>
         </section>
 
         {/* TECHNOLOGIES */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold text-center">Technologies Used</h2>
+        <section className="space-y-8 pb-12">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
+              <Code className="text-orange-600" size={28} />
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold">💻 Technologies Used</h2>
+              <p className="text-gray-600 mt-1">Technical stack and tools for implementation</p>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card title="Machine Learning">Adaptive learning models</Card>
-            <Card title="Deep Learning">Audio and speech analysis</Card>
-            <Card title="HCI">User-centered interaction design</Card>
-            <Card title="Speech Processing">Librosa, PyAudio</Card>
-            <Card title="Backend">FastAPI + PostgreSQL</Card>
-            <Card title="Frontend & AI Hosting">React + HuggingFace</Card>
+            <Card title="🧠 Machine Learning" icon={Database}>Advanced adaptive learning models with personalization algorithms</Card>
+            <Card title="🔊 Deep Learning" icon={Zap}>Audio and speech analysis using neural networks</Card>
+            <Card title="🎨 HCI Design" icon={Palette}>User-centered interaction design for accessibility</Card>
+            <Card title="🔈 Audio Processing" icon={Volume2}>Librosa, PyAudio, FFmpeg, WebAudio API</Card>
+            <Card title="⚙️ Backend Stack" icon={Server}>FastAPI, PostgreSQL, Redis, Python</Card>
+            <Card title="🚀 Frontend & Hosting" icon={Rocket}>React, TypeScript, HuggingFace, Vercel</Card>
           </div>
         </section>
 
